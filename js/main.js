@@ -58,7 +58,7 @@ function agregarProducto() {
         return;
     }
     if (!regexNombre.test(nom)) {
-        mostrarError("El nombre solo puede contener letras, espacios y tildes.");
+        mostrarError("El campo 'Producto' solo puede contener letras, espacios y tildes.");
         return;
     }
     if (pre === "") {
