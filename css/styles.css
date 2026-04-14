@@ -1,15 +1,27 @@
+/*
+    CRITERIO 6b (10%): Animación de entrada para la nueva fila de la tabla.
+    main.js agrega la clase "fade-in-row" a la fila que acaba de agregarse.
+
+   Definimos la animación fadeInRow:
+   - opacity 0 : 1 para que la fila aparezca con un efecto de desvanecimiento.
+   - translateY(-8px) : translateY(0) para que parezca que baja desde arriba.
+*/
 @keyframes fadeInRow {
     from {
-        opacity: 0;
-        transform: translateY(-8px);
+        opacity: 0;                  /* Invisible al principio */
+        transform: translateY(-8px); /* Desplazada hacia arriba al principio */
     }
-
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1;                  /* Visible al final */
+        transform: translateY(0);    /* Posición normal al final */
     }
 }
 
+/*
+   Clase que se agrega a la fila nueva para animarla.
+   La propiedad forwards hace que la fila conserve el estado final
+   después de que termine la animación.
+*/
 .fade-in-row {
     animation: fadeInRow 0.4s ease forwards;
 }
