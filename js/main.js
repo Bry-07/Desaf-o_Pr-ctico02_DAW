@@ -1,7 +1,17 @@
+
+// Creamos la única instancia del inventario que usará toda la app.
+// Al ser "var" en el scope global, todas las funciones pueden accederla.
 var miInventario = new Inventario();
 
+// Variable global que recuerda si el tema oscuro está activado o no.
+// false = modo claro (estado inicial), true = modo oscuro.
 var modoOscuro = false;
 
+
+// ============================================================
+// CRITERIO 6d (10%): Botón "Cambiar Tema" que alterna entre
+// modo claro y oscuro modificando propiedades del DOM.
+// ============================================================
 function cambiarTema() {
     modoOscuro = !modoOscuro;
 
