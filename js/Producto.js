@@ -29,9 +29,7 @@ class Producto {
     // getDescripcion(): devuelve un texto legible con los datos del producto.
     // El formato es exactamente: "Nombre: X | Precio: $Y | Stock: Z unidades".
     getDescripcion() {
-        return "Nombre: " + this.nombre +
-               " | Precio: $" + this.precio.toFixed(2) +
-               " | Stock: " + this.cantidad + " unidades";
+        return "Nombre: " + this.nombre + " | Precio: $" + this.precio.toFixed(2) + " | Stock: " + this.cantidad + " unidades";
     }
     
     // CRITERIO 2d 
