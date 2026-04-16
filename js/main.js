@@ -161,21 +161,26 @@ function mostrarEnPantalla(nuevaAgregada) {
 
     if (misProductos.length === 0) {
         // CRITERIO 5c: Mensaje visible cuando no hay prendas en el inventario.
+        // Si el inventario está vacío mostramos esta fila en la tabla.
         tbody.innerHTML = "<tr><td colspan='7' class='text-center'>No hay prendas aún.</td></tr>";
+        // El total también se actualiza para reflejar inventario vacío.
         totalSpan.innerHTML = "0.00";
         actualizarEstiloTotal(0);
         return;
     }
 
     // Construimos el HTML de cada fila para mostrar la tabla completa.
+    // 5b
     var contenido = "";
     for (var i = 0; i < misProductos.length; i++) {
         var producto = misProductos[i];
         var claseAnim = (nuevaAgregada && i === misProductos.length - 1) ? "fade-in-row" : "";
 
         contenido += "<tr class='" + claseAnim + "'>";
+        // Aquí se cumple el criterio: la foto se muestra con <img src='data URL'>
         contenido += "<td><img src='" + producto.getImagen() + "' alt='" + producto.nombre + "' style='width:60px;height:60px;object-fit:cover;border-radius:6px;'></td>";
         contenido += "<td>" + producto.nombre + "</td>";
+        // Aquí se cumple el criterio: la descripción se muestra usando getDescripcion()
         contenido += "<td>" + producto.getDescripcion() + "</td>";
         contenido += "<td>$" + producto.precio.toFixed(2) + "</td>";
         contenido += "<td>" + producto.cantidad + "</td>";
@@ -183,7 +188,6 @@ function mostrarEnPantalla(nuevaAgregada) {
         contenido += "<td><button onclick='eliminarProducto(" + i + ")' class='btn btn-sm btn-danger'>Eliminar</button></td>";
         contenido += "</tr>";
     }
-
     // Colocamos todas las filas en el tbody.
     tbody.innerHTML = contenido;
 
@@ -196,6 +200,7 @@ function mostrarEnPantalla(nuevaAgregada) {
 
     if (nuevaAgregada) {
         // CRITERIO 6a: Cambio temporal de fondo verde para feedback visual.
+        // Aquí se colorea el contenedor de la lista (tbody) durante 2 segundos.
         tbody.style.backgroundColor = "#d4edda";
         setTimeout(function() {
             tbody.style.backgroundColor = "";

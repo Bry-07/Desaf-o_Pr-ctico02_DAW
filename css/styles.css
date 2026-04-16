@@ -2,6 +2,9 @@
     CRITERIO 6b (10%): Animación de entrada para la nueva fila de la tabla.
     main.js agrega la clase "fade-in-row" a la fila que acaba de agregarse.
 
+    Esta clase se aplica solo al elemento nuevo, por lo que el resto de
+    la tabla no se anima cuando se actualiza el inventario.
+
    Definimos la animación fadeInRow:
    - opacity 0 : 1 para que la fila aparezca con un efecto de desvanecimiento.
    - translateY(-8px) : translateY(0) para que parezca que baja desde arriba.
@@ -19,6 +22,7 @@
 
 /*
    Clase que se agrega a la fila nueva para animarla.
+   main.js la usa cuando se agrega un producto exitosamente.
    La propiedad forwards hace que la fila conserve el estado final
    después de que termine la animación.
 */
